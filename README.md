@@ -15,4 +15,10 @@ Ejercicios:
 ===================
 Clase 3:
 --------
-* Usar Yeoman para generar una nueva vista y un controlador para los settings de la aplicacion: ver la documentacion de como generar una [ruta](https://github.com/yeoman/generator-angular#route)
+* Usar Yeoman para generar una nueva vista y un controlador para los settings de la aplicacion: ver la documentacion de como generar una [ruta](https://github.com/yeoman/generator-angular#route).
+* Colocar un ícono a la derecha del menu que tenga un link a la ruta que se acaba de crear en el punto anterior.
+* En la vista creada, hacer un formulario de [PureCSS] (http://purecss.io/forms/) con los siguientes campos:
+    1. Nombre
+    2. Apellidos
+    3. Edad
+    4. [Boton](http://purecss.io/buttons/) de Guardar

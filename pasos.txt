@@ -21,7 +21,7 @@ http://gaboesquivel.com/blog/2014/overview-of-angular-generators-april-2014/
 Ejercicios:
 - Usar Yeoman para generar una nueva vista y un controlador para los settings de la aplicacion:
   ver https://github.com/yeoman/generator-angular#route
-- Colocar un Icono a la derecha del menu que tenga un link a la ruta que se creo en el punto anterior
+-
 - En la vista creada, hacer un form con los siguientes campos:
     - Nombre
     - Apellidos
