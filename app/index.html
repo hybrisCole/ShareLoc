@@ -30,10 +30,10 @@
             </div>
           </div>
           <div class="pure-u-1-2">
-            <h1 class="titulo-header">ShareLoc</h1>
+            <h1 class="titulo-header"><a href="#/index">ShareLoc</a></h1>
           </div>
           <div class="pure-u-1-4">
-            <!-- Preferencias de Usuario -->
+            <a href="#/settings">Preferencias</a>
           </div>
         </div>
       </div>
@@ -57,6 +57,9 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+  <!-- FB API -->
+  <script src="//connect.facebook.net/en_UK/all.js"></script>
+
   <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -74,6 +77,10 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/coordenadaservice.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/services/settingsservice.js"></script>
+        <script src="scripts/services/facebookservice.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>
