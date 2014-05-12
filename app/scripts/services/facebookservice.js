@@ -4,20 +4,15 @@ angular.module('shareLocApp')
   .factory('facebookservice', function ($q) {
 
     var userId = '',
+        userAccessToken = '',
         friends;
 
-    FB.init({
-      appId: 1421234394814732,
-      status: false,
-      cookie: true,
-      xfbml: true
-    });
     return {
       login: function(){
         var deferred = $q.defer();
         FB.login(function(response) {
           deferred.resolve(response);
-        }, {scope: 'email,user_friends,read_friendlists'});
+        }, {scope: 'email,public_profile,user_friends,publish_actions, publish_stream'});
         return deferred.promise;
       },
       getUserId: function(){
@@ -26,27 +21,32 @@ angular.module('shareLocApp')
       setUserId: function(userIdParam){
         userId = userIdParam;
       },
-      friends: function(userId){
+      getUserAccessToken: function(){
+        return userAccessToken;
+      },
+      setUserAccessToken: function(userTokenParam){
+        userAccessToken = userTokenParam;
+      },
+      friends: function(){
         var deferred = $q.defer();
         FB.api(
-          "/10152474224230739/friendlists",
+          '/'+userId+'/friends',
           function (response) {
             if (response && !response.error) {
-              angular.forEach(response.data,function(value){
-                console.log();
-                FB.api(
-                  "/"+value.id+"/members",
-                  function (response) {
-                    if (response && !response.error) {
-                      console.log('members');
-                      console.log(response);
-                    }
-                  }
-                );
+              _.each(response.data,function(friend){
+                FB.api('/'+friend.id+'/picture?height=100&width=100',function(friendUrl){
+                  //seleccionado en la lista para compartir direcciones
+                  friend.selected = false;
+                  friend.img_url = friendUrl.data.url;
+                  deferred.notify(friend);
+                });
               });
+            }else{
+              deferred.reject(response);
             }
           }
         );
+        return deferred.promise;
       }
     };
   });
