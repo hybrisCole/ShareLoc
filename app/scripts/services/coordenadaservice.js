@@ -30,5 +30,7 @@ angular.module('shareLocApp')
       getLocacionEnviar:function(){
         return locacionEnviar;
       }
+      //agregar aqui una nueva funcion que se encargue de enviar
+      // el mensaje.
     };
   });

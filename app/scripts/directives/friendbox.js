@@ -18,12 +18,10 @@ angular.module('shareLocApp')
        'AEC' - matches either attribute or element or class name
        */
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        console.log('test');
-        scope.enviarMensaje = function(){
+      link: function postLink($scope, element, attrs) {
+        $scope.enviarMensaje = function(){
+          //Coordenadaservice.enviarMensajeAlMuro();
           var locacion = Coordenadaservice.getLocacionEnviar();
-          console.log(locacion.lat());
-          console.log(locacion.lng());
           /*Imaginate que FB.ui no deja mandar mensajes en mobile web...
            * Porque Zucarita? Porque?
            *
@@ -35,7 +33,7 @@ angular.module('shareLocApp')
            * */
           var obj = {
             method: 'feed',
-            to: scope.friendInfo.id,
+            to: $scope.friendInfo.id,
             link: 'http://sharelocapi.jit.su/shareloc/dist/#/location/'+locacion.lat()+'/'+locacion.lng(),
             picture:'http://www.omicrono.com/wp-content/uploads/2011/12/trololo.jpg',
             name: 'ShareLoc',

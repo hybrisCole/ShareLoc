@@ -23,13 +23,22 @@ Clase 3:
     3. Edad
     4. [Boton](http://purecss.io/buttons/) de Guardar
 
-
-
-pasos:
-
-Creacion de servicio de Geolocalización
-
-yo angular:factory coordenadaService
-
-
-
+Clase 5:
+---------
+* Sacar la logica de la funcion "enviarMensaje()" de la directiva friendbox, y colocarla
+el factory de CoordenadaService.
+* En el Mapa principal, agregar un nuevo boton, ahorita hay 3 botones, entonces cada row esta dividido en 1/3 cada uno, como vamos a tener 4, hay que dividirlo en 4 [cuartos](http://purecss.io/grids/)
+* A el boton creado le vamos a llamar "Guardar Ubicacion" y vamos a sacar el form de la vista Share, y vamos a crear una nueva [ruta](https://github.com/yeoman/generator-angular#route) que este boton va a acceder.
+* Esa nueva vista va a recibir las coordenadas del marker que se ha seleccionado (de la misma manera que sucede en el controller de share, que hace un llamado a CoordenadaService para obtenerlas)
+* Crear un factory que se llame "ListaService" con [Yeoman](https://github.com/yeoman/generator-angular#service)
+* En el factory recién creado, hacer un llamado utilizando $http POST a http://sharelocapi.jit.su/lugar con el siguiente formato:
+    ```javascript
+    {
+        nombre:'Casa de Alberto',
+        descripcion:'Descripcion',
+        lat:9.931420671841616,
+        long:-84.04696583747864,
+        userId:649575738
+    }
+    ```
+* Crear una directiva para el mapa de #/main.
