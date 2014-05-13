@@ -17,9 +17,10 @@
         <div class="pure-g">
           <div class="pure-u-1">
             <div class="friend-box" ng-repeat="friend in friends">
-              <img ng-src="{{friend.img_url}}"/>
-              <p class="friend-name">{{friend.name}}</p>
-              <button class="pure-button pure-button-primary share-button" ng-click="enviarMensaje(friend)">Seleccionar</button>
+              <friendbox
+                  friend-info="friend"
+                  friend-template="templates/friend-box.html">
+             </friendbox>
             </div>
           </div>
         </div>
